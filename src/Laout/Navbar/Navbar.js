@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assest/apple-removebg-preview.png'
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/Context';
 
 const Navbar = () => {
 
+    const {user, logOut} = useContext(AuthContext);
+
+    const hendelLogout = () =>{
+        logOut()
+        .then(()=>{})
+        .catch(error => console.log(error))
+    }
+
     const items = <>
-        <li><a>Submenu 1</a></li>
-        <li><a>Submenu 2</a></li>
+        <li><Link className='font-bold' to={"/"}>Home</Link></li>
+        <li><Link className='font-bold' to={"/Blog"}>Blog</Link></li>
+        <li><Link className='font-bold' to={"/category"}>All Category</Link></li>
     </>
 
     return (
-        <div className="navbar bg-emerald-800 pt-4 w-full ">
+        <div className="navbar pt-4 w-full ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -27,7 +38,10 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn ">Get started</a>
+                {user?.email ?
+                    <Link to={"/login"} onClick={hendelLogout} className='btn  lg:me-10 px-12 font-bold rounded-lg'>LogOut</Link>
+                    :
+                <Link to={"/login"} className="btn btn-warning rounded-lg text-white  lg:me-10 px-12 font-bold">Login</Link>}
             </div>
         </div>
     );

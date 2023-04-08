@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Phone from './Phone';
+import { Link } from 'react-router-dom';
 
 const PhoneCategory = () => {
 
@@ -54,7 +55,7 @@ const PhoneCategory = () => {
                }
             </div>
             <div className='mt-16 mb-10'>
-                <button className='btn btn-warning btn-outline px-28'>See More</button>
+                <Link to={"/category"} className='btn btn-warning btn-outline px-28'>See More</Link>
             </div>
         </div>
     );
