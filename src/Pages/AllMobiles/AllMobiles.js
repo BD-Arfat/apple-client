@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import MobilePhone from './MobilePhone';
+import PhoneModal from '../PhoneModal/PhoneModal';
 
 const AllMobiles = () => {
 
     const [Mobiles, setMobile] = useState([]);
-    useEffect( ()=>{
-        fetch("Product.json")
-        .then(res => res.json())
-        .then(data => setMobile(data))
-    },[])
+    const [phone, setPhone] = useState(null);
+    useEffect(() => {
+        fetch("http://localhost:5000/phones")
+            .then(res => res.json())
+            .then(data => setMobile(data))
+    }, [])
 
     return (
         <div>
@@ -19,9 +21,18 @@ const AllMobiles = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:mt-20'>
                 {
                     Mobiles.map(mobile => <MobilePhone
-                    key={mobile._id}
-                    mobile = {mobile}
+                        key={mobile._id}
+                        mobile={mobile}
+                        setPhone={setPhone}
                     ></MobilePhone>)
+                }
+            </div>
+            <div>
+                {phone &&
+                    <PhoneModal
+                        phone={phone}
+                        setPhone={setPhone}
+                    ></PhoneModal>
                 }
             </div>
         </div>

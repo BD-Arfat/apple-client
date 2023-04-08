@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MobilePhone = ({mobile}) => {
+const MobilePhone = ({mobile, setPhone,}) => {
 
     const { name, picture, RAM, ROM, OperatingSystem,Network, Price } = mobile
 
@@ -26,7 +26,7 @@ const MobilePhone = ({mobile}) => {
             </div>
             </div>
             <div className="card-actions">
-                <button className="btn btn-warning btn-outline mb-9 w-56 lg:w-64 mx-auto">Buy Now</button>
+                <label onClick={()=> setPhone(mobile)} htmlFor="phoneBooking-modal" className="btn btn-warning btn-outline mb-9 w-56 lg:w-64 mx-auto">Order Now</label>
             </div>
         </div>
     );

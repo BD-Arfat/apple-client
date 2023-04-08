@@ -8,7 +8,7 @@ import { toast } from 'react-hot-toast';
 
 const Register = () => {
 
-    const {register, googleUser} = useContext(AuthContext)
+    const {register, googleUser, updateUserNmae} = useContext(AuthContext)
 
     const hendeladdtoRegister = (event) =>{
         event.preventDefault();
@@ -24,10 +24,18 @@ const Register = () => {
         }
         // console.log(user)
 
-        register(email, password)
+        register(email, password, )
         .then(result => {
             const user = result.user;
             console.log(user);
+
+            // updateUser
+            const userInfo = {
+                displayName :name
+            }
+            updateUserNmae(userInfo)
+            .then(()=>{})
+            .catch(error =>console.error(error))
             form.reset();
             toast.success('Your register is successful')
         })
