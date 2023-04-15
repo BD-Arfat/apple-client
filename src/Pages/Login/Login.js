@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
 import login from "../../assest/login.jpeg"
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {FaGoogle} from "react-icons/fa"
 import { AuthContext } from '../../Context/Context';
 import { toast } from 'react-hot-toast';
 
+
 const Login = () => {
 
-    const {loginUser, googleUser} = useContext(AuthContext)
+    const {loginUser, googleUser} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/'
 
     const hendelAddToLogin = (event) =>{
         event.preventDefault();
@@ -26,6 +30,7 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            navigate(from, {replace: true})
             toast.success('Your login is successful')
         })
         .catch(error => {
@@ -41,6 +46,7 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user);
+            navigate(from, {replace: true})
             toast.success("You have successfully Login with Google")
         })
         .catch(error =>{

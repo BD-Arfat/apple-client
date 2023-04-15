@@ -1,4 +1,5 @@
 import React from 'react';
+import PrivetRouters from '../../PrivetRouters/PrivetRouters';
 
 const MobilePhone = ({mobile, setPhone,}) => {
 
@@ -26,7 +27,7 @@ const MobilePhone = ({mobile, setPhone,}) => {
             </div>
             </div>
             <div className="card-actions">
-                <label onClick={()=> setPhone(mobile)} htmlFor="phoneBooking-modal" className="btn btn-warning btn-outline mb-9 w-56 lg:w-64 mx-auto">Order Now</label>
+                <PrivetRouters><label onClick={()=> setPhone(mobile)} htmlFor="phoneBooking-modal" className="btn btn-warning btn-outline mb-9 w-56 lg:w-64 mx-auto">Order Now</label></PrivetRouters>
             </div>
         </div>
     );

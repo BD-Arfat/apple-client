@@ -7,6 +7,7 @@ import AllMobiles from "../Pages/AllMobiles/AllMobiles";
 import Blog from "../Pages/Blog/Blog";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import DashbordLaout from "../Pages/DashbordLaout/DashbordLaout";
+import PrivetRouters from "../PrivetRouters/PrivetRouters";
 
 export const router = createBrowserRouter([
     {
@@ -38,7 +39,7 @@ export const router = createBrowserRouter([
     },
     {
         path:'dashboard',
-        element:<DashbordLaout></DashbordLaout>,
+        element:<PrivetRouters><DashbordLaout></DashbordLaout></PrivetRouters>,
         children:[
             {
                 path : "/dashboard",

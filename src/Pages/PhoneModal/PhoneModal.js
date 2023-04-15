@@ -25,7 +25,7 @@ const PhoneModal = ({ phone, setPhone }) => {
         }
         console.log(user)
 
-        fetch("http://localhost:5000/bookings", {
+        fetch("https://apple-serve.vercel.app/bookings", {
             method: "POST", // or 'PUT'
             headers: {
                 "Content-Type": "application/json",

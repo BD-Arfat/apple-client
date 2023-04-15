@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Phone = ({ phone }) => {
 
@@ -23,7 +24,7 @@ const Phone = ({ phone }) => {
             </div>
             </div>
             <div className="card-actions">
-                <button className="btn btn-warning btn-outline mb-9 w-56 lg:w-64 mx-auto">Buy Now</button>
+                <Link className="btn btn-warning btn-outline mb-9 w-56 lg:w-64 mx-auto" to={"/category"}><button>Buy Now</button></Link>
             </div>
         </div>
     );
