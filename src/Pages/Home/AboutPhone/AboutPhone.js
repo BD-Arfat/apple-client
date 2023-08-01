@@ -3,6 +3,7 @@ import image from '../../../assest/images (1).jpeg'
 
 const AboutPhone = () => {
     return (
+        // Abouts Phones
         <div className="hero bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
                 <img style={{width:1000, height:400}} src={image} className="rounded-xl shadow-2xl" />
