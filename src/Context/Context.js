@@ -4,6 +4,7 @@ import app from '../Firebase/Fifrebase.config';
 
 const auth = getAuth(app);
 
+// export AuthContext
 export const AuthContext = createContext();
 
 const Context = ({children}) => {
