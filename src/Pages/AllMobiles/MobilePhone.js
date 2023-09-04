@@ -3,9 +3,12 @@ import PrivetRouters from '../../PrivetRouters/PrivetRouters';
 
 const MobilePhone = ({mobile, setPhone,}) => {
 
+    // props mobile items
+
     const { name, picture, RAM, ROM, OperatingSystem,Network, Price } = mobile
 
     return (
+        // set one porducts
         <div className="card w-11/12 mx-auto bg-base-100 shadow-xl rounded-2xl border-2 border-white mt-5">
             <figure className="px-10 pt-10">
                 <img src={picture} alt="Shoes" className="rounded-xl" />
