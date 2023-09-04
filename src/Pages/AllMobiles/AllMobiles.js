@@ -6,6 +6,7 @@ const AllMobiles = () => {
 
     const [Mobiles, setMobile] = useState([]);
     const [phone, setPhone] = useState(null);
+    // use effect
     useEffect(() => {
         fetch("https://apple-serve.vercel.app/phones")
             .then(res => res.json())
